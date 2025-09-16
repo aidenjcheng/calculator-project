@@ -71,10 +71,16 @@ const handleOperatorClick = (operator) => {
 };
 
 const handleEqualClick = () => {
+ const dumbModeCheckbox = document.getElementById("dumb_mode");
+
  if (firstInt && secondInt && operator) {
   setCurrentInt(1);
   console.log("handle equal click");
-  calculatorScreenValue = ApplyOperation();
+  if (dumbModeCheckbox && dumbModeCheckbox.checked) {
+   calculatorScreenValue = "Hello world";
+  } else {
+   calculatorScreenValue = ApplyOperation();
+  }
   setOperator(undefined);
   setFirstInt(undefined);
   setSecondInt(undefined);
